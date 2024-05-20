@@ -1,27 +1,26 @@
 <main class="main">
   <div class="content">
-    <div>
-      <header>Libro filmes</header>
+
+    <div class="header">
+      <header>LIBROFILMES</header>
     </div>
 
-    <div>
-      <mat-card *ngFor="let movie of movies" class="movie-card">
+    <div class="card-container">
+      <mat-card *ngFor="let movie of movies" class="cards">
         <mat-card-header>
-          <mat-card-title>{{ movie.title }}</mat-card-title>
+          <mat-card-title>
+            <a routerLink="/movie/{{ movie.id }}"  routerLinkActive="active">
+              {{ movie.title }}
+            </a>
+          </mat-card-title>
         </mat-card-header>
         <img mat-card-image [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="{{ movie.title }}">
-        <mat-card-content>
-          <p>{{ movie.overview }}</p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-fab extended color="primary">
-            <mat-icon>visibility</mat-icon>
-            Detalhes
-          </button>
-        </mat-card-actions>
       </mat-card>
     </div>
+
+
   </div>
 </main>
 
-<router-outlet />
+<router-outlet></router-outlet>
+<!-- <router-outlet /> -->
