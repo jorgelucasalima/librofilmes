@@ -2,14 +2,14 @@
   <div class="content">
 
     <div class="header">
-      <header>LIBROFILMES</header>
+      <a routerLink="/">LIBROFILMES</a>
     </div>
 
     <div class="card-container">
       <mat-card *ngFor="let movie of movies" class="cards">
         <mat-card-header>
           <mat-card-title>
-            <a routerLink="/movie/{{ movie.id }}"  routerLinkActive="active">
+            <a [routerLink]="['/movie', movie.id]" routerLinkActive="active">
               {{ movie.title }}
             </a>
           </mat-card-title>

@@ -26,7 +26,15 @@ export class MovieDetailsComponent  implements OnInit {
       })
     );  
 
-    //console.log(this.movie$);
+    this.movie$.subscribe(
+      movie => {
+        console.log('Filme recebido:', movie);
+      },
+      error => {
+        console.error('Erro ao obter detalhes do filme:', error);
+      }
+    );
+  
   }
 
 }
