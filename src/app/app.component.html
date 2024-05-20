@@ -4,21 +4,6 @@
     <div class="header">
       <a routerLink="/">LIBROFILMES</a>
     </div>
-
-    <div class="card-container">
-      <mat-card *ngFor="let movie of movies" class="cards">
-        <mat-card-header>
-          <mat-card-title>
-            <a [routerLink]="['/movie', movie.id]" routerLinkActive="active">
-              {{ movie.title }}
-            </a>
-          </mat-card-title>
-        </mat-card-header>
-        <img mat-card-image [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="{{ movie.title }}">
-      </mat-card>
-    </div>
-
-
   </div>
 </main>
 

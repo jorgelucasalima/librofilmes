@@ -10,8 +10,10 @@ import { switchMap } from 'rxjs/operators';
   templateUrl: './movie-details.component.html',
   styleUrls: ['./movie-details.component.css']
 })
-export class MovieDetailsComponent  implements OnInit {
+export class MovieDetailsComponent implements OnInit {
   title = 'Detalhes do filme';
+
+  panelOpenState: boolean = false;
 
   movie$!: Observable<MovieDetails>;
 

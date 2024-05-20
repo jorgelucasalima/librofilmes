@@ -10,14 +10,20 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatExpansionModule} from '@angular/material/expansion';
+
+
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { MoviesComponent } from './movies/movies.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    MoviesComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +32,9 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
     HttpClientModule,
     MatCardModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule,
+    MatExpansionModule
   ],
   providers: [
     provideAnimationsAsync()

@@ -1,5 +1,57 @@
-<div *ngIf="movie$ | async as movie">
-  <h1>{{ movie.title }}</h1>
-  <p>{{ movie.overview }}</p>
-  <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="{{ movie.title }}">
+
+<div class="movie-details">
+  <mat-accordion displayMode="flat" *ngIf="movie$ | async as movie" class="movie-details-accordion">
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b>{{ movie.title }}</b>
+        </mat-panel-title>
+        <mat-panel-description>
+          
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>{{ movie.overview }}</p>
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Poster
+        </mat-panel-title>
+        <mat-panel-description>
+         
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="{{ movie.title }}">
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Generos
+        </mat-panel-title>
+        <mat-panel-description>
+         
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p *ngFor="let genre of movie.genres">
+        {{ genre.name }}
+      </p>
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Empresa produtora
+        </mat-panel-title>
+        <mat-panel-description>
+         
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p *ngFor="let company of movie.production_companies">
+        {{ company.name }}
+      </p>
+      <img *ngFor="let company of movie.production_companies" src="https://image.tmdb.org/t/p/w500{{ company.logo_path }}">    
+    </mat-expansion-panel>
+  </mat-accordion>
 </div>
